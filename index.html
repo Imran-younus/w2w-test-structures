@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W2W Bonding Test Structures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-header {
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+        
+        .card-header .icon {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+        }
+        
+        .card-body {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-body h4 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+        
+        .card-body ul {
+            list-style: none;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+        
+        .card-body ul li {
+            padding: 6px 0;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .card-body ul li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+        
+        .card-footer {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .card-footer a {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+        
+        .card-footer a:hover {
+            background: #2980b9;
+        }
+        
+        /* Individual card colors */
+        .card-1 .card-header { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); }
+        .card-1:hover { border-color: #34495e; }
+        .card-1 .card-footer a { background: #34495e; }
+        .card-1 .card-footer a:hover { background: #2c3e50; }
+        
+        .card-2 .card-header { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); }
+        .card-2:hover { border-color: #e74c3c; }
+        .card-2 .card-footer a { background: #e74c3c; }
+        .card-2 .card-footer a:hover { background: #c0392b; }
+        
+        .card-3 .card-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-3:hover { border-color: #764ba2; }
+        .card-3 .card-footer a { background: #764ba2; }
+        .card-3 .card-footer a:hover { background: #667eea; }
+        
+        .footer {
+            padding: 15px;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 W2W Bonding Test Structures</h1>
+            <p>Cross-Sectional Views - Metal1 Level Testing</p>
+        </div>
+        
+        <div class="content">
+            <!-- Card 1: Daisy Chain ✓ COMPLETED -->
+            <div class="card card-1" onclick="window.location.href='1_daisy_chain.html'">
+                <div class="card-header">
+                    <div class="icon">🔗</div>
+                    <h3>1. Daisy Chain</h3>
+                    <p>Continuity Testing</p>
+                </div>
+                <div class="card-body">
+                    <h4>Detects:</h4>
+                    <ul>
+                        <li>Open circuits</li>
+                        <li>Large voids</li>
+                        <li>High resistance paths</li>
+                        <li>Via failures</li>
+                    </ul>
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Serpentine design</li>
+                        <li>4-wire measurement</li>
+                        <li>1-10 mm metal traces</li>
+                        <li>Tests metal + vias</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="1_daisy_chain.html">View Cross-Section →</a>
+                </div>
+            </div>
+            
+            <!-- Card 2: Comb-Comb ✓ COMPLETED -->
+            <div class="card card-2" onclick="window.location.href='2_comb_comb.html'">
+                <div class="card-header">
+                    <div class="icon">🔱</div>
+                    <h3>2. Comb-Comb</h3>
+                    <p>Short Detection</p>
+                </div>
+                <div class="card-body">
+                    <h4>Detects:</h4>
+                    <ul>
+                        <li>Particle contamination</li>
+                        <li>Metal shorts</li>
+                        <li>Dielectric breakdown</li>
+                        <li>Process defects</li>
+                    </ul>
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Interdigitated fingers</li>
+                        <li>Leakage test</li>
+                        <li>High sensitivity</li>
+                        <li>Complementary to Daisy Chain</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="2_comb_comb.html">View Cross-Section →</a>
+                </div>
+            </div>
+            
+            <!-- Card 3: CMBSRP ✓ COMPLETED -->
+            <div class="card card-3" onclick="window.location.href='3_cmbsrp.html'">
+                <div class="card-header">
+                    <div class="icon">🌊</div>
+                    <h3>3. CMBSRP</h3>
+                    <p>Comb-Serpentine</p>
+                </div>
+                <div class="card-body">
+                    <h4>Detects:</h4>
+                    <ul>
+                        <li>Leakage paths</li>
+                        <li>Resistance variations</li>
+                        <li>Comb-to-trace shorts</li>
+                        <li>Oxide defects</li>
+                    </ul>
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Serpentine weaving</li>
+                        <li>Between comb fingers</li>
+                        <li>High sensitivity</li>
+                        <li>Combined test structure</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="3_cmbsrp.html">View Cross-Section →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>W2W Bonding Test Structures</strong> - Three complementary test structures for comprehensive defect detection at Metal1 level</p>
+        </div>
+    </div>
+</body>
+</html>

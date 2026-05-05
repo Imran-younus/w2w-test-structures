@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daisy Chain - Cross Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            flex: 1;
+            display: flex;
+            padding: 15px;
+            gap: 15px;
+            overflow: hidden;
+        }
+        
+        .diagram {
+            flex: 1;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .diagram h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .diagram-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .legend {
+            width: 280px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .legend h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+            flex-shrink: 0;
+        }
+        
+        .legend-text {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .legend-text strong {
+            display: block;
+            color: #2c3e50;
+            font-size: 0.9em;
+        }
+        
+        .legend-text small {
+            color: #7f8c8d;
+            font-size: 0.75em;
+            display: block;
+            word-wrap: break-word;
+        }
+        
+        .specs {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.85em;
+        }
+        
+        .specs h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 5px 10px;
+        }
+        
+        .specs-grid dt {
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        
+        .specs-grid dd {
+            color: #2c3e50;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: #ecf0f1;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .nav-buttons a {
+            padding: 8px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .nav-buttons a:hover {
+            background: #2980b9;
+        }
+        
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .interactive-element:hover {
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 Daisy Chain Test Structure</h1>
+            <p>Cross-Sectional View - Continuity & Resistance Testing</p>
+        </div>
+        
+        <div class="content">
+            <div class="diagram">
+                <h3>Cross-Section View</h3>
+                <div class="diagram-content">
+                    <svg viewBox="0 -20 1100 570" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Top Wafer (extended 2x from top and bottom) -->
+                        <rect x="200" y="-10" width="700" height="160" fill="#f0f8ff" stroke="#4a90e2" stroke-width="3"/>
+                        
+                        <!-- Metal1 Top - Segment 1 (completely overlaps via from above) -->
+                        <rect x="250" y="80" width="120" height="40" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Bond Interface with oval void defects only -->
+                        <defs>
+                            <linearGradient id="viaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:1" />
+                            </linearGradient>
+                            <pattern id="defectPattern" x="0" y="0" width="600" height="24" patternUnits="userSpaceOnUse">
+                                <rect width="600" height="24" fill="#a5d6a7" opacity="1"/>
+                                <!-- Multiple defects at different locations (adjusted for compact spacing) -->
+                                <!-- Large prominent cavity between center vias at top surface -->
+                                <ellipse cx="290" cy="0" rx="35" ry="14" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="1"/>
+                                <!-- Smaller defects at other locations -->
+                                <ellipse cx="170" cy="4" rx="12" ry="3" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                                <ellipse cx="230" cy="18" rx="15" ry="4" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                                <ellipse cx="360" cy="8" rx="14" ry="3.5" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                                <ellipse cx="420" cy="20" rx="16" ry="3" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect x="200" y="150" width="700" height="40" fill="url(#defectPattern)"/>
+                        
+                        <!-- Semi-circle cavity defect centered in oxide (shorting Via 2 and Via 3 from middle) -->
+                        <ellipse cx="515" cy="170" rx="55" ry="8" fill="#e74c3c" opacity="0.95" stroke="#c0392b" stroke-width="3"/>
+                        
+                        <!-- Bottom Wafer (extended 2x from top and bottom) - drawn first -->
+                        <rect x="200" y="190" width="700" height="160" fill="#f0f8ff" stroke="#4a90e2" stroke-width="3"/>
+                        
+                        <!-- Via 1 (wider trapezoid) -->
+                        <polygon points="325,115 365,115 360,235 330,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Metal1 Bottom - Segment 1 (flush with Via 1 and Via 2 bottoms) -->
+                        <rect x="330" y="230" width="145" height="40" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Via 2 (wider trapezoid, compact spacing) -->
+                        <polygon points="440,115 480,115 475,235 445,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Metal1 Top - Segment 2 (flush with Via 2 top) -->
+                        <rect x="440" y="80" width="150" height="40" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Via 3 (wider trapezoid, compact spacing) -->
+                        <polygon points="550,115 590,115 585,235 555,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Metal1 Bottom - Segment 2 (flush with Via 3 bottom) -->
+                        <rect x="555" y="230" width="150" height="40" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Via 4 (wider trapezoid, compact spacing) -->
+                        <polygon points="670,115 710,115 705,235 675,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Metal1 Top - Segment 3 (Output, flush with Via 4 top) -->
+                        <rect x="670" y="80" width="150" height="40" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Marker definitions -->
+                        <defs>
+                            <marker id="labelArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#666"/>
+                            </marker>
+                            <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                                <polygon points="0 0, 6 3, 0 6" fill="#ff6b6b"/>
+                            </marker>
+                            <marker id="crArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#2c3e50"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Draw all lines first (label arrows and current flow paths) - short arrows touching shapes -->
+                        <line x1="140" y1="175" x2="195" y2="170" stroke="#666" stroke-width="1.5" marker-end="url(#labelArrow)"/>
+                        <line x1="150" y1="55" x2="195" y2="55" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="150" y1="285" x2="195" y2="285" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="780" y1="50" x2="750" y2="80" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="820" y1="165" x2="710" y2="165" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="780" y1="280" x2="705" y2="250" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="515" y1="290" x2="515" y2="195" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#labelArrow)"/>
+                        
+                        <!-- Arrow pointing to Via 1 for CR note - touches bottom of via -->
+                        <line x1="345" y1="365" x2="345" y2="235" stroke="#2c3e50" stroke-width="2.5" marker-end="url(#crArrow)"/>
+                        
+                        <!-- Current path (dashed lines) - centered in metal segments and vias -->
+                        <!-- Entry to Via 1 -->
+                        <path d="M 200 65 L 200 100 L 345 100" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- Via 1 (centered at x=345) -->
+                        <path d="M 345 100 L 345 250" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- M1 Bottom Segment 1 (centered at y=250) -->
+                        <path d="M 345 250 L 460 250" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- Via 2 (centered at x=460) -->
+                        <path d="M 460 250 L 460 100" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- M1 Top Segment 2 (centered at y=100) -->
+                        <path d="M 460 100 L 570 100" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- Via 3 (centered at x=570) -->
+                        <path d="M 570 100 L 570 250" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- M1 Bottom Segment 2 (centered at y=250) -->
+                        <path d="M 570 250 L 690 250" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- Via 4 (centered at x=690) -->
+                        <path d="M 690 250 L 690 100" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- M1 Top Segment 3 to exit (centered at y=100) -->
+                        <path d="M 690 100 L 900 100" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="7,5" fill="none" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- All text labels on top - positioned away from lines -->
+                        <!-- Shape labels inside segments -->
+                        <text x="310" y="92" text-anchor="middle" font-size="18" fill="#b8860b" font-weight="bold">M1</text>
+                        <text x="330" y="180" text-anchor="middle" font-size="18" fill="white" font-weight="bold">V1</text>
+                        <text x="402" y="242" text-anchor="middle" font-size="18" fill="#2e5c8a" font-weight="bold">M1</text>
+                        <text x="445" y="180" text-anchor="middle" font-size="18" fill="white" font-weight="bold">V2</text>
+                        <text x="515" y="92" text-anchor="middle" font-size="18" fill="#b8860b" font-weight="bold">M1</text>
+                        <text x="555" y="180" text-anchor="middle" font-size="18" fill="white" font-weight="bold">V3</text>
+                        <text x="630" y="242" text-anchor="middle" font-size="18" fill="#2e5c8a" font-weight="bold">M1</text>
+                        <text x="675" y="180" text-anchor="middle" font-size="18" fill="white" font-weight="bold">V4</text>
+                        <text x="745" y="92" text-anchor="middle" font-size="18" fill="#b8860b" font-weight="bold">M1</text>
+                        
+                        <!-- External labels with arrows - closer to shapes -->
+                        <text x="80" y="165" text-anchor="middle" font-size="18" fill="#2e7d32" font-weight="bold">Bonding</text>
+                        <text x="80" y="183" text-anchor="middle" font-size="18" fill="#2e7d32" font-weight="bold">Oxide</text>
+                        <text x="100" y="55" text-anchor="middle" font-weight="bold" fill="#1a1a2e" font-size="18">Top Wafer</text>
+                        <text x="100" y="285" text-anchor="middle" font-weight="bold" fill="#1a1a2e" font-size="18">Bottom Wafer</text>
+                        <text x="785" y="50" text-anchor="start" font-size="18" fill="#b8860b" font-weight="bold">M1 (Top)</text>
+                        <text x="825" y="170" text-anchor="start" font-size="18" fill="#c92a2a" font-weight="bold">Via</text>
+                        <text x="785" y="280" text-anchor="start" font-size="18" fill="#2e5c8a" font-weight="bold">M1 (Bottom)</text>
+                        <text x="515" y="305" text-anchor="middle" font-size="18" fill="#4a90e2" font-weight="bold">Bonding Defect Shorting Via 2 & 3</text>
+                        
+                        <!-- CR note and design flexibility - below bottom wafer in white space -->
+                        <text x="550" y="385" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">Note: Contact Resistor (CR) used for M1 contact (requires GR waivers).</text>
+                        <text x="550" y="405" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">Metal segment lengths and array sizes can be varied to detect defects of different sizes.</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="diagram">
+                <h3>Top View</h3>
+                <div class="diagram-content">
+                    <svg viewBox="0 0 750 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bond interface oxide layer -->
+                        <rect x="100" y="80" width="500" height="80" fill="#e8f5e9" opacity="0.9" stroke="#2e7d32" stroke-width="2"/>
+                        
+                        <!-- Large bonding defect (shorting Via 2 and Via 3) -->
+                        <ellipse cx="350" cy="120" rx="50" ry="25" fill="#e74c3c" opacity="0.9" stroke="#c0392b" stroke-width="3"/>
+                        <text x="350" y="125" text-anchor="middle" font-size="18" fill="white" font-weight="bold">SHORT</text>
+                        
+                        <!-- Smaller bonding defects (voids) scattered in oxide -->
+                        <ellipse cx="180" cy="110" rx="12" ry="8" fill="#b0bec5" opacity="0.7" stroke="#95a5a6" stroke-width="1"/>
+                        <ellipse cx="520" cy="130" rx="14" ry="9" fill="#b0bec5" opacity="0.7" stroke="#95a5a6" stroke-width="1"/>
+                        
+                        <!-- Metal 1 Top layer segments (gold) - 3 segments in one line -->
+                        <rect x="120" y="105" width="80" height="30" fill="#ffd700" class="interactive-element"/>
+                        <rect x="290" y="105" width="110" height="30" fill="#ffd700" class="interactive-element"/>
+                        <rect x="480" y="105" width="110" height="30" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Metal 1 Bottom layer segments (blue) - 2 segments in one line -->
+                        <rect x="200" y="105" width="90" height="30" fill="#4a90e2" class="interactive-element"/>
+                        <rect x="400" y="105" width="80" height="30" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Vias (red circles connecting layers) - 4 vias overlapping metals -->
+                        <circle cx="200" cy="120" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        <circle cx="290" cy="120" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        <circle cx="400" cy="120" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        <circle cx="480" cy="120" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        
+                        <!-- Current flow path (dashed line showing serpentine) -->
+                        <defs>
+                            <marker id="arrowTopView" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                                <polygon points="0 0, 6 3, 0 6" fill="#e74c3c"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Current flow path (horizontal through all vias) - draw first -->
+                        <path d="M 128 120 L 192 120" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowTopView)"/>
+                        <path d="M 214 120 L 282 120" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowTopView)"/>
+                        <path d="M 304 120 L 392 120" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowTopView)"/>
+                        <path d="M 414 120 L 472 120" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowTopView)"/>
+                        <path d="M 494 120 L 582 120" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowTopView)"/>
+                        
+                        <!-- Entry point -->
+                        <circle cx="120" cy="120" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+                        <text x="120" y="60" text-anchor="middle" font-size="18" fill="#27ae60" font-weight="bold">IN</text>
+                        
+                        <!-- Exit point -->
+                        <circle cx="590" cy="120" r="8" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+                        <text x="590" y="180" text-anchor="middle" font-size="18" fill="#e74c3c" font-weight="bold">OUT</text>
+                        
+                        <!-- Labels for vias - positioned above to avoid current flow line -->
+                        <text x="200" y="95" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V1</text>
+                        <text x="290" y="95" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V2</text>
+                        <text x="400" y="95" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V3</text>
+                        <text x="480" y="95" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V4</text>
+                        
+                        <!-- Bonding defect label -->
+                        <defs>
+                            <marker id="labelArrowTopView" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#4a90e2"/>
+                            </marker>
+                        </defs>
+                        <line x1="350" y1="210" x2="350" y2="145" stroke="#4a90e2" stroke-width="2.5" marker-end="url(#labelArrowTopView)"/>
+                        <text x="350" y="230" text-anchor="middle" font-size="18" fill="#4a90e2" font-weight="bold">Bonding Defect Shorting Via 2 & 3</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <h3>Layer Legend</h3>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f0f8ff; border: 2px solid #4a90e2;"></div>
+                    <div class="legend-text">
+                        <strong>Silicon Wafer</strong>
+                        <small>Top & Bottom</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffd700;"></div>
+                    <div class="legend-text">
+                        <strong>Metal1 (Top)</strong>
+                        <small>Gold - Above interface</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4a90e2;"></div>
+                    <div class="legend-text">
+                        <strong>Metal1 (Bottom)</strong>
+                        <small>Blue - Below interface</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(to bottom, #ff6b6b, #c92a2a);"></div>
+                    <div class="legend-text">
+                        <strong>Vias (Tapered)</strong>
+                        <small>Red gradient - Through interface</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e8f5e9;"></div>
+                    <div class="legend-text">
+                        <strong>Bonding Oxide</strong>
+                        <small>With defects</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #b0bec5;"></div>
+                    <div class="legend-text">
+                        <strong>Defects/Voids</strong>
+                        <small>Non-conductive cavities</small>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="index.html">← Index</a>
+            <a href="2_comb_comb.html">Next: Comb-Comb →</a>
+        </div>
+    </div>
+</body>
+</html>
