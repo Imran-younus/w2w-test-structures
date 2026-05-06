@@ -49,10 +49,10 @@
         .content {
             flex: 1;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             padding: 20px;
-            overflow: hidden;
+            overflow: auto;
         }
         
         .card {
@@ -159,6 +159,11 @@
         .card-3 .card-footer a { background: #764ba2; }
         .card-3 .card-footer a:hover { background: #667eea; }
         
+        .card-4 .card-header { background: linear-gradient(135deg, #16a085 0%, #27ae60 100%); }
+        .card-4:hover { border-color: #27ae60; }
+        .card-4 .card-footer a { background: #27ae60; }
+        .card-4 .card-footer a:hover { background: #16a085; }
+        
         .footer {
             padding: 15px;
             background: #2c3e50;
@@ -260,10 +265,38 @@
                     <a href="3_cmbsrp.html">View Cross-Section →</a>
                 </div>
             </div>
+            
+            <!-- Card 4: Plate Capacitor ✓ COMPLETED -->
+            <div class="card card-4" onclick="window.location.href='4_plate_capacitor.html'">
+                <div class="card-header">
+                    <div class="icon">⚡</div>
+                    <h3>4. Plate Capacitor</h3>
+                    <p>Series Capacitance</p>
+                </div>
+                <div class="card-body">
+                    <h4>Detects:</h4>
+                    <ul>
+                        <li>Oxide quality issues</li>
+                        <li>Dielectric breakdown</li>
+                        <li>Capacitance variations</li>
+                        <li>Interface defects</li>
+                    </ul>
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>5 capacitors in series</li>
+                        <li>M1 plate electrodes</li>
+                        <li>Oxide dielectric testing</li>
+                        <li>Breakdown voltage measurement</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="4_plate_capacitor.html">View Cross-Section →</a>
+                </div>
+            </div>
         </div>
         
         <div class="footer">
-            <p><strong>W2W Bonding Test Structures</strong> - Three complementary test structures for comprehensive defect detection at Metal1 level</p>
+            <p><strong>W2W Bonding Test Structures</strong> - Four complementary test structures for comprehensive defect detection at Metal1 level</p>
         </div>
     </div>
 </body>
