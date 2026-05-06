@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plate Capacitor - Cross Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 10px;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #16a085 0%, #27ae60 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            flex: 1;
+            display: flex;
+            padding: 15px;
+            gap: 15px;
+            overflow: hidden;
+        }
+        
+        .diagram {
+            flex: 1;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .diagram h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .diagram-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .legend {
+            width: 250px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .legend h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+        }
+        
+        .legend-text strong {
+            display: block;
+            color: #2c3e50;
+            font-size: 0.9em;
+        }
+        
+        .legend-text small {
+            color: #7f8c8d;
+            font-size: 0.75em;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: #ecf0f1;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .nav-buttons a {
+            padding: 8px 20px;
+            background: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .nav-buttons a:hover {
+            background: #16a085;
+        }
+        
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .interactive-element:hover {
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Plate Capacitor Test Structure</h1>
+            <p>Cross-Sectional View - Series Capacitance & Oxide Quality Testing</p>
+        </div>
+        
+        <div class="content">
+            <div class="diagram">
+                <h3>Cross-Section View</h3>
+                <div class="diagram-content">
+                    <svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Marker definitions -->
+                        <defs>
+                            <marker id="labelArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#666"/>
+                            </marker>
+                            <clipPath id="oxideClip">
+                                <rect x="100" y="260" width="700" height="50"/>
+                            </clipPath>
+                        </defs>
+                        
+                        <!-- Top Wafer -->
+                        <rect x="100" y="40" width="700" height="220" fill="#f0f8ff" stroke="#4a90e2" stroke-width="4"/>
+                        
+                        <!-- M1 Top Plates (5 capacitors) - extending down to oxide -->
+                        <rect x="130" y="100" width="100" height="160" fill="#ffd700" class="interactive-element"/>
+                        <rect x="270" y="100" width="100" height="160" fill="#ffd700" class="interactive-element"/>
+                        <rect x="410" y="100" width="100" height="160" fill="#ffd700" class="interactive-element"/>
+                        <rect x="550" y="100" width="100" height="160" fill="#ffd700" class="interactive-element"/>
+                        <rect x="690" y="100" width="100" height="160" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Labels on top plates -->
+                        <text x="180" y="180" text-anchor="middle" font-size="20" fill="#b8860b" font-weight="bold">C1</text>
+                        <text x="320" y="180" text-anchor="middle" font-size="20" fill="#b8860b" font-weight="bold">C2</text>
+                        <text x="460" y="180" text-anchor="middle" font-size="20" fill="#b8860b" font-weight="bold">C3</text>
+                        <text x="600" y="180" text-anchor="middle" font-size="20" fill="#b8860b" font-weight="bold">C4</text>
+                        <text x="740" y="180" text-anchor="middle" font-size="20" fill="#b8860b" font-weight="bold">C5</text>
+                        
+                        <!-- Oxide layer (dielectric) - thinner like other macros -->
+                        <rect x="100" y="260" width="700" height="50" fill="#ffd700" opacity="0.7"/>
+                        
+                        <!-- Bonding defects (cavities filled with metal causing shorts) -->
+                        <!-- Major defect in C2 -->
+                        <ellipse cx="320" cy="285" rx="28" ry="18" fill="#e74c3c" opacity="0.85" stroke="#c0392b" stroke-width="2" clip-path="url(#oxideClip)"/>
+                        <!-- Major defect in C4 -->
+                        <ellipse cx="600" cy="285" rx="30" ry="16" fill="#e74c3c" opacity="0.85" stroke="#c0392b" stroke-width="2" clip-path="url(#oxideClip)"/>
+                        <!-- Smaller defects scattered -->
+                        <ellipse cx="180" cy="280" rx="15" ry="10" fill="#e74c3c" opacity="0.75" stroke="#c0392b" stroke-width="1" clip-path="url(#oxideClip)"/>
+                        <ellipse cx="460" cy="288" rx="18" ry="12" fill="#e74c3c" opacity="0.75" stroke="#c0392b" stroke-width="1" clip-path="url(#oxideClip)"/>
+                        <ellipse cx="520" cy="282" rx="12" ry="8" fill="#e74c3c" opacity="0.75" stroke="#c0392b" stroke-width="1" clip-path="url(#oxideClip)"/>
+                        <!-- Non-shorting voids -->
+                        <ellipse cx="740" cy="285" rx="20" ry="14" fill="#b0bec5" opacity="0.6" clip-path="url(#oxideClip)"/>
+                        <ellipse cx="250" cy="287" rx="10" ry="7" fill="#b0bec5" opacity="0.5" clip-path="url(#oxideClip)"/>
+                        <ellipse cx="680" cy="283" rx="14" ry="9" fill="#b0bec5" opacity="0.5" clip-path="url(#oxideClip)"/>
+                        
+                        <!-- Bottom Wafer -->
+                        <rect x="100" y="310" width="700" height="220" fill="#f0f8ff" stroke="#4a90e2" stroke-width="4"/>
+                        
+                        <!-- M1 Bottom Plates (5 capacitors) - extending up from bottom wafer -->
+                        <rect x="130" y="310" width="100" height="160" fill="#4a90e2" class="interactive-element"/>
+                        <rect x="270" y="310" width="100" height="160" fill="#4a90e2" class="interactive-element"/>
+                        <rect x="410" y="310" width="100" height="160" fill="#4a90e2" class="interactive-element"/>
+                        <rect x="550" y="310" width="100" height="160" fill="#4a90e2" class="interactive-element"/>
+                        <rect x="690" y="310" width="100" height="160" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Labels on bottom plates -->
+                        <text x="180" y="390" text-anchor="middle" font-size="20" fill="#2e5c8a" font-weight="bold">C1</text>
+                        <text x="320" y="390" text-anchor="middle" font-size="20" fill="#2e5c8a" font-weight="bold">C2</text>
+                        <text x="460" y="390" text-anchor="middle" font-size="20" fill="#2e5c8a" font-weight="bold">C3</text>
+                        <text x="600" y="390" text-anchor="middle" font-size="20" fill="#2e5c8a" font-weight="bold">C4</text>
+                        <text x="740" y="390" text-anchor="middle" font-size="20" fill="#2e5c8a" font-weight="bold">C5</text>
+                        
+                        <!-- Series connections (corrected wiring pattern) -->
+                        <!-- C1 bottom to C2 bottom (horizontal at bottom) -->
+                        <rect x="230" y="385" width="40" height="10" fill="#e74c3c" class="interactive-element"/>
+                        <!-- C2 top to C3 top (horizontal at top) -->
+                        <rect x="370" y="175" width="40" height="10" fill="#e74c3c" class="interactive-element"/>
+                        <!-- C3 bottom to C4 bottom (horizontal at bottom) -->
+                        <rect x="510" y="385" width="40" height="10" fill="#e74c3c" class="interactive-element"/>
+                        <!-- C4 top to C5 top (horizontal at top) -->
+                        <rect x="650" y="175" width="40" height="10" fill="#e74c3c" class="interactive-element"/>
+                        
+                        <!-- Input terminal (C1 top) -->
+                        <circle cx="130" cy="180" r="8" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="80" y1="180" x2="122" y2="180" stroke="#2ecc71" stroke-width="4"/>
+                        <text x="60" y="185" text-anchor="middle" font-size="18" fill="#27ae60" font-weight="bold">IN</text>
+                        
+                        <!-- Output terminal (C5 bottom) -->
+                        <circle cx="790" cy="390" r="8" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+                        <line x1="798" y1="390" x2="840" y2="390" stroke="#e74c3c" stroke-width="4"/>
+                        <text x="860" y="395" text-anchor="middle" font-size="18" fill="#e74c3c" font-weight="bold">OUT</text>
+                        
+                        <!-- Label arrow for oxide -->
+                        <line x1="450" y1="500" x2="450" y2="315" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        
+                        <!-- Arrows pointing to defects -->
+                        <line x1="320" y1="480" x2="320" y2="305" stroke="#e74c3c" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="600" y1="480" x2="600" y2="305" stroke="#e74c3c" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        
+                        <!-- Text labels -->
+                        <text x="450" y="25" text-anchor="middle" font-weight="bold" fill="#1a1a2e" font-size="24">Top Wafer</text>
+                        <text x="450" y="548" text-anchor="middle" font-weight="bold" fill="#1a1a2e" font-size="24">Bottom Wafer</text>
+                        <text x="450" y="520" text-anchor="middle" font-size="18" fill="#b8860b" font-weight="bold">Bonding Oxide (Dielectric)</text>
+                        <text x="320" y="500" text-anchor="middle" font-size="16" fill="#e74c3c" font-weight="bold">Short (C2)</text>
+                        <text x="600" y="500" text-anchor="middle" font-size="16" fill="#e74c3c" font-weight="bold">Short (C4)</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="diagram">
+                <h3>Top View - Series Configuration</h3>
+                <div class="diagram-content">
+                    <svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Oxide layer background -->
+                        <rect x="50" y="150" width="800" height="250" fill="#ffd700" opacity="0.3" stroke="#b8860b" stroke-width="2"/>
+                        
+                        <!-- Bonding defects -->
+                        <!-- Major defect in C2 -->
+                        <ellipse cx="300" cy="275" rx="20" ry="35" fill="#e74c3c" opacity="0.85" stroke="#c0392b" stroke-width="2"/>
+                        <!-- Major defect in C4 -->
+                        <ellipse cx="580" cy="275" rx="22" ry="32" fill="#e74c3c" opacity="0.85" stroke="#c0392b" stroke-width="2"/>
+                        <!-- Smaller defects scattered -->
+                        <ellipse cx="160" cy="270" rx="12" ry="20" fill="#e74c3c" opacity="0.75" stroke="#c0392b" stroke-width="1"/>
+                        <ellipse cx="440" cy="280" rx="14" ry="24" fill="#e74c3c" opacity="0.75" stroke="#c0392b" stroke-width="1"/>
+                        <ellipse cx="510" cy="272" rx="10" ry="18" fill="#e74c3c" opacity="0.75" stroke="#c0392b" stroke-width="1"/>
+                        <!-- Non-shorting voids -->
+                        <ellipse cx="720" cy="275" rx="15" ry="24" fill="#b0bec5" opacity="0.7" stroke="#95a5a6" stroke-width="1"/>
+                        <ellipse cx="230" cy="278" rx="8" ry="16" fill="#b0bec5" opacity="0.6" stroke="#95a5a6" stroke-width="1"/>
+                        <ellipse cx="650" cy="273" rx="11" ry="20" fill="#b0bec5" opacity="0.6" stroke="#95a5a6" stroke-width="1"/>
+                        
+                        <!-- Top plates (gold) - 5 capacitors -->
+                        <rect x="100" y="200" width="120" height="150" fill="#ffd700" stroke="#b8860b" stroke-width="3" class="interactive-element"/>
+                        <rect x="240" y="200" width="120" height="150" fill="#ffd700" stroke="#b8860b" stroke-width="3" class="interactive-element"/>
+                        <rect x="380" y="200" width="120" height="150" fill="#ffd700" stroke="#b8860b" stroke-width="3" class="interactive-element"/>
+                        <rect x="520" y="200" width="120" height="150" fill="#ffd700" stroke="#b8860b" stroke-width="3" class="interactive-element"/>
+                        <rect x="660" y="200" width="120" height="150" fill="#ffd700" stroke="#b8860b" stroke-width="3" class="interactive-element"/>
+                        
+                        <!-- Bottom plates (blue) - slightly offset for visibility -->
+                        <rect x="105" y="205" width="110" height="140" fill="#4a90e2" opacity="0.5" stroke="#2e5c8a" stroke-width="2" class="interactive-element"/>
+                        <rect x="245" y="205" width="110" height="140" fill="#4a90e2" opacity="0.5" stroke="#2e5c8a" stroke-width="2" class="interactive-element"/>
+                        <rect x="385" y="205" width="110" height="140" fill="#4a90e2" opacity="0.5" stroke="#2e5c8a" stroke-width="2" class="interactive-element"/>
+                        <rect x="525" y="205" width="110" height="140" fill="#4a90e2" opacity="0.5" stroke="#2e5c8a" stroke-width="2" class="interactive-element"/>
+                        <rect x="665" y="205" width="110" height="140" fill="#4a90e2" opacity="0.5" stroke="#2e5c8a" stroke-width="2" class="interactive-element"/>
+                        
+                        <!-- Series connection wires (red) - corrected pattern -->
+                        <!-- C1 bottom to C2 bottom -->
+                        <rect x="220" y="340" width="20" height="8" fill="#e74c3c"/>
+                        <!-- C2 top to C3 top -->
+                        <rect x="360" y="202" width="20" height="8" fill="#e74c3c"/>
+                        <!-- C3 bottom to C4 bottom -->
+                        <rect x="500" y="340" width="20" height="8" fill="#e74c3c"/>
+                        <!-- C4 top to C5 top -->
+                        <rect x="640" y="202" width="20" height="8" fill="#e74c3c"/>
+                        
+                        <!-- Input terminal (C1 top) -->
+                        <circle cx="80" cy="205" r="10" fill="#2ecc71" stroke="#27ae60" stroke-width="3"/>
+                        <line x1="50" y1="205" x2="70" y2="205" stroke="#2ecc71" stroke-width="6"/>
+                        <line x1="90" y1="205" x2="100" y2="205" stroke="#2ecc71" stroke-width="6"/>
+                        <text x="30" y="210" text-anchor="middle" font-size="20" fill="#27ae60" font-weight="bold">IN</text>
+                        
+                        <!-- Output terminal (C5 bottom) -->
+                        <circle cx="800" cy="345" r="10" fill="#e74c3c" stroke="#c0392b" stroke-width="3"/>
+                        <line x1="780" y1="345" x2="790" y2="345" stroke="#e74c3c" stroke-width="6"/>
+                        <line x1="810" y1="345" x2="850" y2="345" stroke="#e74c3c" stroke-width="6"/>
+                        <text x="870" y="350" text-anchor="middle" font-size="20" fill="#e74c3c" font-weight="bold">OUT</text>
+                        
+                        <!-- Capacitor labels -->
+                        <text x="160" y="180" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">C1</text>
+                        <text x="300" y="180" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">C2</text>
+                        <text x="440" y="180" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">C3</text>
+                        <text x="580" y="180" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">C4</text>
+                        <text x="720" y="180" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">C5</text>
+                        
+                        <!-- Note about design flexibility -->
+                        <text x="450" y="470" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">Note: Series or parallel plate configurations detect oxide defects through capacitance variations.</text>
+                        <text x="450" y="492" text-anchor="middle" font-size="20" fill="#2c3e50" font-weight="bold">Metal-filled cavities cause shorts; clean oxide maintains designed capacitance values.</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <h3>Layer Legend</h3>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f0f8ff; border: 2px solid #4a90e2;"></div>
+                    <div class="legend-text">
+                        <strong>Silicon Wafer</strong>
+                        <small>Top & Bottom</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffd700;"></div>
+                    <div class="legend-text">
+                        <strong>M1 Top Plates</strong>
+                        <small>Capacitor electrodes</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4a90e2;"></div>
+                    <div class="legend-text">
+                        <strong>M1 Bottom Plates</strong>
+                        <small>Capacitor electrodes</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffd700; opacity: 0.7;"></div>
+                    <div class="legend-text">
+                        <strong>Bonding Oxide</strong>
+                        <small>Dielectric layer</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e74c3c;"></div>
+                    <div class="legend-text">
+                        <strong>Series Connections</strong>
+                        <small>Metal wiring</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="3_cmbsrp.html">← Previous: CMBSRP</a>
+            <a href="index.html">Back to Index →</a>
+        </div>
+    </div>
+</body>
+</html>
