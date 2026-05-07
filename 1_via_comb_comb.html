@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Via Comb-Comb - Cross Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            flex: 1;
+            display: flex;
+            padding: 15px;
+            gap: 15px;
+            overflow: hidden;
+        }
+        
+        .diagram {
+            flex: 1;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .diagram h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .diagram-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .legend {
+            width: 280px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .legend h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+            flex-shrink: 0;
+        }
+        
+        .legend-text {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .legend-text strong {
+            display: block;
+            color: #2c3e50;
+            font-size: 0.9em;
+        }
+        
+        .legend-text small {
+            color: #7f8c8d;
+            font-size: 0.75em;
+            display: block;
+            word-wrap: break-word;
+        }
+        
+        .specs {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.85em;
+        }
+        
+        .specs h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 5px 10px;
+        }
+        
+        .specs-grid dt {
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        
+        .specs-grid dd {
+            color: #2c3e50;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: #ecf0f1;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .nav-buttons a {
+            padding: 8px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .nav-buttons a:hover {
+            background: #2980b9;
+        }
+        
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .interactive-element:hover {
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 Via Comb-Comb Test Structure</h1>
+            <p>Cross-Sectional View - Short Detection Between Interdigitated Via Combs</p>
+        </div>
+        
+        <div class="content">
+            <div class="diagram">
+                <h3>Cross-Section View</h3>
+                <div class="diagram-content">
+                    <svg viewBox="0 -20 1100 520" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Top Wafer -->
+                        <rect x="200" y="-10" width="700" height="160" fill="#f0f8ff" stroke="#4a90e2" stroke-width="3"/>
+                        
+                        <!-- Bond Interface with oval void defects -->
+                        <defs>
+                            <linearGradient id="viaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:1" />
+                            </linearGradient>
+                            <pattern id="defectPattern" x="0" y="0" width="600" height="24" patternUnits="userSpaceOnUse">
+                                <rect width="600" height="24" fill="#a5d6a7" opacity="1"/>
+                                <!-- Multiple defects at different locations -->
+                                <ellipse cx="290" cy="0" rx="35" ry="14" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="1"/>
+                                <ellipse cx="170" cy="4" rx="12" ry="3" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                                <ellipse cx="230" cy="18" rx="15" ry="4" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                                <ellipse cx="360" cy="8" rx="14" ry="3.5" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                                <ellipse cx="420" cy="20" rx="16" ry="3" fill="#546e7a" opacity="1" stroke="#37474f" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect x="200" y="150" width="700" height="40" fill="url(#defectPattern)"/>
+                        
+                        <!-- Defect shorting Via 2 and Via 3 -->
+                        <ellipse cx="515" cy="170" rx="55" ry="8" fill="#e74c3c" opacity="0.95" stroke="#c0392b" stroke-width="3"/>
+                        
+                        <!-- Bottom Wafer -->
+                        <rect x="200" y="190" width="700" height="160" fill="#f0f8ff" stroke="#4a90e2" stroke-width="3"/>
+                        
+                        <!-- Via 1 (wider trapezoid) -->
+                        <polygon points="325,115 365,115 360,235 330,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Via 2 (wider trapezoid, compact spacing) -->
+                        <polygon points="440,115 480,115 475,235 445,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Via 3 (wider trapezoid, compact spacing) -->
+                        <polygon points="550,115 590,115 585,235 555,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Via 4 (wider trapezoid, compact spacing) -->
+                        <polygon points="670,115 710,115 705,235 675,235" fill="url(#viaGrad)" class="interactive-element"/>
+                        
+                        <!-- Comb A: Metal1 backbone connecting V1 and V3 (gold - top wafer) -->
+                        <rect x="325" y="40" width="265" height="20" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Comb A: Vertical connectors from backbone to vias (flush edges) -->
+                        <rect x="335" y="40" width="20" height="75" fill="#ffd700" class="interactive-element"/>
+                        <rect x="565" y="40" width="20" height="75" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Comb B: Metal1 backbone connecting V2 and V4 (blue - top wafer) -->
+                        <rect x="440" y="70" width="270" height="20" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Comb B: Vertical connectors from backbone to vias (flush edges) -->
+                        <rect x="450" y="70" width="20" height="45" fill="#4a90e2" class="interactive-element"/>
+                        <rect x="680" y="70" width="20" height="45" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Marker definitions -->
+                        <defs>
+                            <marker id="labelArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#666"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Label arrows -->
+                        <line x1="140" y1="170" x2="195" y2="170" stroke="#666" stroke-width="1.5" marker-end="url(#labelArrow)"/>
+                        <line x1="150" y1="55" x2="195" y2="55" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="150" y1="285" x2="195" y2="285" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="920" y1="50" x2="595" y2="50" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="920" y1="80" x2="715" y2="80" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        <line x1="920" y1="175" x2="715" y2="175" stroke="#666" stroke-width="2" marker-end="url(#labelArrow)"/>
+                        
+                        <!-- Via labels inside vias -->
+                        <text x="345" y="180" text-anchor="middle" font-size="20" fill="white" font-weight="bold">V1</text>
+                        <text x="460" y="180" text-anchor="middle" font-size="20" fill="white" font-weight="bold">V2</text>
+                        <text x="570" y="180" text-anchor="middle" font-size="20" fill="white" font-weight="bold">V3</text>
+                        <text x="690" y="180" text-anchor="middle" font-size="20" fill="white" font-weight="bold">V4</text>
+                        
+                        <!-- External labels -->
+                        <text x="80" y="175" text-anchor="middle" font-size="20" fill="#2e7d32" font-weight="bold">Oxide</text>
+                        <text x="100" y="55" text-anchor="middle" font-weight="bold" fill="#1a1a2e" font-size="20">Top Wafer</text>
+                        <text x="100" y="285" text-anchor="middle" font-weight="bold" fill="#1a1a2e" font-size="20">Bottom Wafer</text>
+                        <text x="925" y="50" text-anchor="start" font-size="20" fill="#b8860b" font-weight="bold">Comb A</text>
+                        <text x="925" y="80" text-anchor="start" font-size="20" fill="#2e5c8a" font-weight="bold">Comb B</text>
+                        <text x="925" y="175" text-anchor="start" font-size="20" fill="#c92a2a" font-weight="bold">Via</text>
+                        
+                        <!-- Defect label -->
+                        <text x="515" y="320" text-anchor="middle" font-size="20" fill="#e74c3c" font-weight="bold">Defect shorts V2-V3</text>
+                        
+                        <!-- Design note -->
+                        <text x="550" y="385" text-anchor="middle" font-size="18" fill="#2c3e50" font-weight="bold">Interdigitated via combs detect shorts between opposite comb vias.</text>
+                        <text x="550" y="405" text-anchor="middle" font-size="18" fill="#2c3e50" font-weight="bold">Via spacing and array sizes can be varied to detect defects of different sizes.</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="diagram">
+                <h3>Top View</h3>
+                <div class="diagram-content">
+                    <svg viewBox="0 0 750 350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bond interface oxide layer -->
+                        <rect x="100" y="100" width="500" height="80" fill="#e8f5e9" opacity="0.9" stroke="#2e7d32" stroke-width="2"/>
+                        
+                        <!-- Large bonding defect (shorting Via 2 and Via 3) -->
+                        <ellipse cx="350" cy="140" rx="50" ry="25" fill="#e74c3c" opacity="0.9" stroke="#c0392b" stroke-width="3"/>
+                        <text x="350" y="145" text-anchor="middle" font-size="18" fill="white" font-weight="bold">SHORT</text>
+                        
+                        <!-- Smaller bonding defects (voids) scattered in oxide -->
+                        <ellipse cx="180" cy="130" rx="12" ry="8" fill="#b0bec5" opacity="0.7" stroke="#95a5a6" stroke-width="1"/>
+                        <ellipse cx="520" cy="150" rx="14" ry="9" fill="#b0bec5" opacity="0.7" stroke="#95a5a6" stroke-width="1"/>
+                        
+                        <!-- Vias (red circles) - 4 vias in a row -->
+                        <circle cx="200" cy="140" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        <circle cx="300" cy="140" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        <circle cx="400" cy="140" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        <circle cx="490" cy="140" r="14" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" class="interactive-element"/>
+                        
+                        <!-- Comb A: backbone at top (gold) - symmetrical -->
+                        <rect x="193" y="80" width="214" height="15" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Comb A: vertical connectors from top (flush edges) -->
+                        <rect x="193" y="80" width="14" height="46" fill="#ffd700" class="interactive-element"/>
+                        <rect x="393" y="80" width="14" height="46" fill="#ffd700" class="interactive-element"/>
+                        
+                        <!-- Comb B: backbone at bottom (blue) - symmetrical -->
+                        <rect x="293" y="185" width="197" height="15" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Comb B: vertical connectors from bottom (flush edges) -->
+                        <rect x="293" y="154" width="14" height="46" fill="#4a90e2" class="interactive-element"/>
+                        <rect x="476" y="154" width="14" height="46" fill="#4a90e2" class="interactive-element"/>
+                        
+                        <!-- Comb A pad (gold) -->
+                        <rect x="120" y="60" width="50" height="20" fill="#ffd700" stroke="#b8860b" stroke-width="2"/>
+                        <text x="145" y="74" text-anchor="middle" font-size="18" fill="#b8860b" font-weight="bold">A</text>
+                        
+                        <!-- Comb B pad (blue) -->
+                        <rect x="490" y="200" width="50" height="20" fill="#4a90e2" stroke="#2e5c8a" stroke-width="2"/>
+                        <text x="515" y="214" text-anchor="middle" font-size="18" fill="white" font-weight="bold">B</text>
+                        
+                        <!-- Via labels -->
+                        <text x="200" y="115" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V1</text>
+                        <text x="300" y="170" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V2</text>
+                        <text x="400" y="115" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V3</text>
+                        <text x="490" y="170" text-anchor="middle" font-size="18" fill="#c92a2a" font-weight="bold">V4</text>
+                        
+                        <!-- Comb labels - moved away from horizontal segments -->
+                        <text x="300" y="60" text-anchor="middle" font-size="18" fill="#b8860b" font-weight="bold">COMB A</text>
+                        <text x="390" y="240" text-anchor="middle" font-size="18" fill="#2e5c8a" font-weight="bold">COMB B</text>
+                        
+                        <!-- Defect label -->
+                        <defs>
+                            <marker id="labelArrowTopView" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#e74c3c"/>
+                            </marker>
+                        </defs>
+                        <line x1="350" y1="260" x2="350" y2="165" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#labelArrowTopView)"/>
+                        <text x="350" y="280" text-anchor="middle" font-size="20" fill="#e74c3c" font-weight="bold">Defect shorts V2-V3</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <h3>Layer Legend</h3>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f0f8ff; border: 2px solid #4a90e2;"></div>
+                    <div class="legend-text">
+                        <strong>Silicon Wafer</strong>
+                        <small>Top & Bottom</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffd700;"></div>
+                    <div class="legend-text">
+                        <strong>Metal1 Comb A</strong>
+                        <small>Gold - V1 & V3 (Top wafer)</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4a90e2;"></div>
+                    <div class="legend-text">
+                        <strong>Metal1 Comb B</strong>
+                        <small>Blue - V2 & V4 (Top wafer)</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(to bottom, #ff6b6b, #c92a2a);"></div>
+                    <div class="legend-text">
+                        <strong>Vias (Tapered)</strong>
+                        <small>Red gradient - Through interface</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e8f5e9;"></div>
+                    <div class="legend-text">
+                        <strong>Bonding Oxide</strong>
+                        <small>With defects</small>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #b0bec5;"></div>
+                    <div class="legend-text">
+                        <strong>Defects/Voids</strong>
+                        <small>Non-conductive cavities</small>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="index.html">← Index</a>
+            <a href="2_comb_comb.html">Next: Comb-Comb →</a>
+        </div>
+    </div>
+</body>
+</html>
